@@ -1,0 +1,68 @@
+@use '@angular/material' as mat;
+
+@font-face {
+  font-family: 'Akronim';
+  src: url('/assets/fonts/Akronim-normal-400-latin.woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Odibee Sans';
+  src: url('/assets/fonts/Odibee-Sans-400-webfont.woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+$headline-1-level: mat.define-typography-level(
+  $font-family: Akronim,
+  $font-weight: 400,
+  $font-size: 18.4px,
+  $line-height: 26.4px,
+  $letter-spacing: normal
+);
+
+$headline-2-level: mat.define-typography-level(
+  $font-family: Odibee Sans,
+  $font-weight: 400,
+  $font-size: 20.4px,
+  $line-height: 28.4px,
+  $letter-spacing: normal
+);
+
+$body-1-level: mat.define-typography-level(
+  $font-family: Akronim,
+  $font-weight: 400,
+  $font-size: 12px,
+  $line-height: 16.8px,
+  $letter-spacing: normal
+);
+
+$button-level: mat.define-typography-level(
+  $font-family: Odibee Sans,
+  $font-weight: 400,
+  $font-size: 12px,
+  $line-height: 17px,
+  $letter-spacing: normal
+);
+
+
+// $headline-5: $headline-5-level,
+// $headline-6: $headline-6-level,
+$typography-config: mat.define-typography-config(
+  $headline-1: $headline-1-level,
+  $headline-2: $headline-2-level,
+  $body-1: $body-1-level,
+  $button: $button-level
+);
+
+// &.mat-headline-5,
+// &.mat-headline-6,
+.mat-typography {
+  &.mat-headline-1,
+  &.mat-headline-2,
+  &.mat-body-1,
+  &.mat-button {
+    margin: 0;
+  }
+}
