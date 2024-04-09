@@ -7,7 +7,26 @@ const config: StorybookConfig = {
     name: '@storybook/angular',
     options: {}
   },
-  staticDirs: [{ from: '../src/assets/fonts', to: '/' }]
+  webpackFinal: async config => {
+    // Ensure config.module exists
+    if (!config.module) {
+      config.module = { rules: [] };
+    }
+    // Ensure config.module.rules exists
+    if (!config.module.rules) {
+      config.module.rules = [];
+    }
+
+    config.module.rules.push({
+      test: /\.(woff|woff2|eot|ttf|otf)$/,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/fonts/[hash][ext][query]'
+      }
+    });
+
+    return config;
+  }
 };
 
 export default config;
